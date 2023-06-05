@@ -29,13 +29,13 @@ export const inlineForm = (onsubmit) => {
   );
 };
 
-export const deleteToDoButton = (toDo, onDeleted) => {
+export const deleteButton = (onDeleted) => {
+  
   return $("button", {
     innerText: "x",
     className: "delete",
     onclick: (event) => {
       onDeleted();
-      deleteToDo(toDo);
     },
   });
 };
@@ -47,13 +47,14 @@ export const toDoListItem = (toDo) => {
   };
 
   const onDeleted = () => {
+    deleteToDo(toDo);
     domElement.remove();
   };
 
   const domElement = $("div", { className: "ToDoItem" }, [
-    deleteToDoButton(toDo, onDeleted),
+    deleteButton(onDeleted),
     $("span", toDo.text),
-    $("input", {
+    $("input",{
       type: "checkbox",
       checked: toDo.done,
       className: "checkBox",
