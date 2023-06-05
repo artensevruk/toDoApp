@@ -1,5 +1,3 @@
-
-
 const toDosKey = "toDos";
 const nextIdKey = "nextId";
 export const readToDos = () => {
@@ -14,7 +12,7 @@ export const readToDos = () => {
   return array;
 };
 
-export const update = (updatedToDo) => {
+export const updateToDo = (updatedToDo) => {
   const toDos = readToDos();
   // const storedToDoIndex = toDos.findIndex(storedToDo => storedToDo.id === updatedToDo.id)
   for (let i = 0; i < toDos.length; i++) {
@@ -40,16 +38,16 @@ export const writeToDo = (toDo) => {
   writeJson(array);
 };
 
-export const deleteElement = (deleteElement) =>{
+export const deleteToDo = (deleteElement) => {
   const array = readToDos();
-  let newArray =[]; 
-  for(let i = 0 ; i < array.length; i++) {
-    if( array[i].id !== deleteElement.id){
+  let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].id !== deleteElement.id) {
       newArray.push(array[i]);
     }
   }
   writeJson(newArray);
-}
+};
 
 // export function checkCheckbox(toDo) {
 //   const array = readToDos();
