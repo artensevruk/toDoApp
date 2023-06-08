@@ -7,11 +7,9 @@ export const inlineForm = (onsubmit) => {
     {
       className: "inlineForm",
       onsubmit: (event) => {
-
         event.preventDefault();
 
-      
-       const input = event.target.text;
+        const input = event.target.text;
         if (input.value.trim() !== "") {
           onsubmit(input.value);
           input.value = "";
@@ -30,7 +28,6 @@ export const inlineForm = (onsubmit) => {
 };
 
 export const deleteButton = (onDeleted) => {
-  
   return $("button", {
     innerText: "x",
     className: "delete",
@@ -54,7 +51,7 @@ export const toDoListItem = (toDo) => {
   const domElement = $("div", { className: "ToDoItem" }, [
     deleteButton(onDeleted),
     $("span", toDo.text),
-    $("input",{
+    $("input", {
       type: "checkbox",
       checked: toDo.done,
       className: "checkBox",
