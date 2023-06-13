@@ -17,13 +17,9 @@ export const readToDos = () => {
 
 export const updateToDo = (updatedToDo) => {
   const toDos = readToDos();
-  // const storedToDoIndex = toDos.findIndex(storedToDo => storedToDo.id === updatedToDo.id)
-  for (let i = 0; i < toDos.length; i++) {
-    if (toDos[i].id === updatedToDo.id) {
-      toDos[i] = updatedToDo;
-      writeJson(toDos);
-    }
-  }
+  const storedToDo = toDos.find(toDo => toDo.id === updatedToDo.id);
+  Object.assign(storedToDo , updatedToDo );
+  writeJson(toDos);
 };
 
 const writeJson = (array) => {
@@ -46,14 +42,7 @@ export const writeToDo = (toDo) => {
 
 export const deleteToDo = (deleteElement) => {
   const array = readToDos();
- 
-  // for (let i = 0; i < array.length; i++) {
-  //   if (array[i].id !== deleteElement.id) {
-  //     newArray.push(array[i]);
-  //   }
-  // }
  const filterArray = array.filter( toDo => toDo.id !== deleteElement.id );
-
   writeJson(filterArray);
 };
 
