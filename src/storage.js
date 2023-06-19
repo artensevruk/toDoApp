@@ -1,28 +1,23 @@
-
-
 const toDosKey = "toDos";
 const nextIdKey = "nextId";
-export const readToDos = () => {
-  const array = JSON.parse(localStorage.getItem(toDosKey)) || [];
 
-  let nextId = 0;
-
-  if (!localStorage.hasOwnProperty(nextIdKey)) {
-    localStorage.setItem(nextIdKey, nextId);
-  }
-
-  return array;
+const writeId = (id) => {
+  localStorage.setItem(nextIdKey, id);
 };
 
-export const update = (updatedToDo) => {
-  const toDos = readToDos();
-  // const storedToDoIndex = toDos.findIndex(storedToDo => storedToDo.id === updatedToDo.id)
-  for (let i = 0; i < toDos.length; i++) {
-    if (toDos[i].id === updatedToDo.id) {
-      toDos[i] = updatedToDo;
-      writeJson(toDos);
-    }
+export const readToDos = () => {
+  return JSON.parse(localStorage.getItem(toDosKey)) || [];
+};
+export const initStorage = () => {
+  if (!localStorage.hasOwnProperty(nextIdKey)) {
+    writeId(0);
   }
+};
+export const updateToDo = (updatedToDo) => {
+  const toDos = readToDos();
+  const storedToDo = toDos.find((toDo) => toDo.id === updatedToDo.id);
+  Object.assign(storedToDo, updatedToDo);
+  writeJson(toDos);
 };
 
 const writeJson = (array) => {
@@ -30,42 +25,21 @@ const writeJson = (array) => {
 };
 
 export const writeToDo = (toDo) => {
-  const array = readToDos();
+  const toDos = readToDos();
   let nextId = localStorage.getItem(nextIdKey);
   nextId = +nextId + 1;
-  toDo.id = nextId;
-  localStorage.setItem(nextIdKey, nextId);
-
-  array.push(toDo);
-  writeJson(array);
+  const storedToDo = {
+    ...toDo,
+    id: nextId,
+  };
+  writeId(nextId);
+  toDos.push(storedToDo);
+  writeJson(toDos);
+  return storedToDo;
 };
 
-export const deleteElement = (deleteElement) =>{
-  const array = readToDos();
-  let newArray =[]; 
-  for(let i = 0 ; i < array.length; i++) {
-    if( array[i].id !== deleteElement.id){
-      newArray.push(array[i]);
-    }
-  }
-  writeJson(newArray);
-}
-
-// export function checkCheckbox(toDo) {
-//   const array = readToDos();
-//   const checkbox = document.querySelector("checkBox");
-//   if (checkbox.checked) {
-
-//     let nextId = localStorage.getItem(nextIdKey);
-
-//     nextId = +nextId + 2;
-//     toDo.id = nextId;
-//     localStorage.setItem(nextIdKey, nextId);
-//     console.log("Checkbox is checked");
-
-//     array.push(toDo);
-//     writeJson(array);
-//   } else {
-//     console.log("Checkbox is not checked");
-//   }
-// }
+export const deleteToDo = (toDoId) => {
+  const toDos = readToDos();
+  const filtered = toDos.filter((toDo) => toDo.id !== toDoId);
+  writeJson(filtered);
+};

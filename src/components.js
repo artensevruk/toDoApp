@@ -1,36 +1,38 @@
 import $ from "create-element";
-import { update, deleteElement } from "./storage.js";
+import { updateToDo, deleteToDo } from "./storage.js";
 
 export const inlineForm = (onsubmit) => {
-  const input = $("input", { className: "inlineInput" });
-  const button = $("input", {
-    type: "submit",
-    value: "Add",
-    className: "AddButton",
-  });
+  return $(
+    "form",
+    {
+      className: "inlineForm",
+      onsubmit: (event) => {
+        event.preventDefault();
 
-  const inlineForm = $("form", {className: "inlineForm"} , [input, button]);
-
-  inlineForm.onsubmit = (event) => {
-    event.preventDefault();
-    
-    if (input.value.trim() !== "") {
-      onsubmit(input.value);
-    input.value = "";
-    }
-    
-  };
-
-  return inlineForm;
+        const input = event.target.text;
+        if (input.value.trim() !== "") {
+          onsubmit(input.value);
+          input.value = "";
+        }
+      },
+    },
+    [
+      $("input", { className: "inlineInput", name: "text" }),
+      $("input", {
+        type: "submit",
+        value: "Add",
+        className: "AddButton",
+      }),
+    ]
+  );
 };
 
-export const deleteToDoButton = (toDo, onDeleted) => {
+export const deleteButton = (onDeleted) => {
   return $("button", {
     innerText: "x",
     className: "delete",
     onclick: (event) => {
       onDeleted();
-      deleteElement(toDo);
     },
   });
 };
@@ -38,15 +40,16 @@ export const deleteToDoButton = (toDo, onDeleted) => {
 export const toDoListItem = (toDo) => {
   const clickOnCheckBox = () => {
     toDo.done = !toDo.done;
-    update(toDo);
+    updateToDo(toDo);
   };
 
   const onDeleted = () => {
+    deleteToDo(toDo.id);
     domElement.remove();
   };
 
   const domElement = $("div", { className: "ToDoItem" }, [
-    deleteToDoButton(toDo, onDeleted),
+    deleteButton(onDeleted),
     $("span", toDo.text),
     $("input", {
       type: "checkbox",

@@ -1,6 +1,6 @@
 import CopyPlugin from "copy-webpack-plugin";
-import webpack from "webpack";
-export default {
+
+const config = {
   plugins: [
     new CopyPlugin({
       patterns: [
@@ -9,8 +9,8 @@ export default {
       ],
     }),
   ],
-  mode: "development",
 
+  
   devServer: {
     static: "./dist",
     hot: true,
@@ -21,3 +21,17 @@ export default {
     },
   },
 };
+
+ export default (env, argv) => {
+  config.mode = argv.mode;
+  
+  // if (argv.mode === 'development') {
+  //   // config.devtool = 'source-map';
+  // }
+
+  // if (argv.mode === 'production') {
+  //   //...
+  // }
+
+return config
+}
