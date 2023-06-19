@@ -10,28 +10,18 @@ const config = {
     }),
   ],
 
-  
   devServer: {
     static: "./dist",
     hot: true,
     devMiddleware: {
       writeToDisk: (filePath) => {
-        return !/hot-update/i.test(filePath); // you can change it to whatever you need
+        return !/hot-update/i.test(filePath);
       },
     },
   },
 };
 
- export default (env, argv) => {
+export default (env, argv) => {
   config.mode = argv.mode;
-  
-  // if (argv.mode === 'development') {
-  //   // config.devtool = 'source-map';
-  // }
-
-  // if (argv.mode === 'production') {
-  //   //...
-  // }
-
-return config
-}
+  return config;
+};
