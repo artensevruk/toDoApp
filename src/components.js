@@ -44,7 +44,7 @@ export const toDoListItem = (toDo) => {
   };
 
   const onDeleted = () => {
-    deleteToDo(toDo);
+    deleteToDo(toDo.id);
     domElement.remove();
   };
 
