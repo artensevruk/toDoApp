@@ -1,7 +1,8 @@
 import { inlineForm, toDoList, toDoListItem } from "./components.js";
 import $ from "create-element";
-import { readToDos, writeToDo, initStorage } from "./storage.js";
-
+import { writeToDo, initStorage } from "./storage.js";
+import  "./api.js";
+import { readToDos } from "./api.js";
 export const toDoApp = () => {
   initStorage();
   let array = readToDos();
@@ -10,6 +11,6 @@ export const toDoApp = () => {
     const storedToDo = writeToDo(toDo);
     list.append(toDoListItem(storedToDo));
   });
-  const list = toDoList(array);
+  const list = toDoList(readToDos);
   return $("div", { className: "toDoApp" }, [form, list]);
 };
