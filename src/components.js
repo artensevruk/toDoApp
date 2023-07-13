@@ -1,6 +1,7 @@
 import $ from "create-element";
 import { updateToDo, deleteToDo } from "./storage.js";
 
+
 export const inlineForm = (onsubmit) => {
   return $(
     "form",
@@ -62,10 +63,13 @@ export const toDoListItem = (toDo) => {
   return domElement;
 };
 
+
+
 export const toDoList = (toDos) => {
-  return $(
-    "div",
-    { className: "toDoList" },
-    toDos.map((toDo) => toDoListItem(toDo))
-  );
+  const container = $("div", { className: "ToDoList" });
+  toDos()
+    .then((toDos) =>{
+      container.append(...toDos.map((toDo) => toDoListItem(toDo)));
+    });
+  return container;
 };
