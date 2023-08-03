@@ -23,5 +23,10 @@ const config = {
 
 export default (env, argv) => {
   config.mode = argv.mode;
+
+  if (argv.mode === 'development') {
+    config.devtool = 'source-map';
+  }
+
   return config;
 };
