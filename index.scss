@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@600&display=swap");
+body {
+  background-color: #d0d9cd;
+}
+.ToDoItem {
+  margin-bottom: 10px;
+  border: 2px solid #78866b ;
+  width: 800px;
+  background: #a9ba9d;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.toDoApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Oswald;
+  font-size: 30px;
+}
+
+.inlineForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.inlineInput {
+  margin-right: 20px;
+  background: #b2beb5;
+  color: #32382c;
+  border-radius: 20px;
+  border: 2px solid #78866b;
+  font-size: 30px;
+}
+.AddButton:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.173);
+}
+.AddButton {
+  border: 2px solid #b2beb5;
+  background: #78866b;
+  color: #32382c;
+  border-radius: 20px;
+  font-size: 30px;
+  padding: 2px 28px;
+}
+span {
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #32382c;
+  border-radius: 40px;
+}
+.checkBox {
+  margin: 10px;
+  width: 26px;
+  height: 26px;
+}
+.delete {
+  font-size: 24px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  background: rgb(255, 255, 255);
+  border-radius: 40px;
+  color: #32382c;
+}
+.delete:hover {
+  transition: 1.5s;
+  cursor: pointer;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}

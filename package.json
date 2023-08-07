@@ -1,19 +1,20 @@
 {
   "name": "to-do-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "lint": "eslint src --fix",
     "build": "webpack --mode=production",
     "start": "webpack serve --mode=development",
+    "style": "node-sass -w ./scss -o ./css" ,
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "create-element": "git+https://github.com/artensevruk/createElement.git"
+    "create-element": "git+https://github.com/artensevruk/createElement.git",
+    "node-sass": "^9.0.0"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
@@ -21,5 +22,7 @@
     "html-webpack-plugin": "^5.5.1",
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
