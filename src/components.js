@@ -19,7 +19,7 @@ export const inlineForm = (onsubmit) => {
     [
       $("input", { className: "inlineInput", name: "text" }),
       $("input", {
-        maxlength: "6",
+        Max: "6",
         type: "submit",
         value: "Add",
         className: "AddButton",
@@ -53,6 +53,7 @@ export const toDoListItem = (toDo) => {
     deleteButton(onDeleted),
     $("span", toDo.text),
     $("input", {
+      Max: "6",
       type: "checkbox",
       checked: toDo.done,
       className: "checkBox",
