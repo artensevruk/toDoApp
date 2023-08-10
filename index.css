@@ -49,7 +49,7 @@ flex: 1;
 }
 .AddButton:hover {
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.173);
+  background: #f0f0f030;
 }
 
 .AddButton {
