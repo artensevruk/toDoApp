@@ -17,9 +17,8 @@ export const inlineForm = (onsubmit) => {
       },
     },
     [
-      $("input", { className: "inlineInput", name: "text" }),
+      $("input", { className: "inlineInput", name: "text" , maxLength:"44"}),
       $("input", {
-        maxlength: "6",
         type: "submit",
         value: "Add",
         className: "AddButton",
@@ -27,6 +26,8 @@ export const inlineForm = (onsubmit) => {
     ]
   );
 };
+
+
 
 export const deleteButton = (onDeleted) => {
   return $("button", {
@@ -70,3 +71,5 @@ export const toDoList = (toDos) => {
     toDos.map((toDo) => toDoListItem(toDo))
   );
 };
+
+
