@@ -1,76 +1,85 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@600&display=swap");
 body {
-  background-color: #d0d9cd;
-}
-.ToDoItem {
-  margin-bottom: 10px;
-  border: 2px solid #78866b ;
-  width: 800px;
-  background: #a9ba9d;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.toDoApp {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: Oswald;
-  font-size: 30px;
-}
-
-.inlineForm {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 40px;
-}
-.inlineInput {
-  margin-right: 20px;
-  background: #b2beb5;
-  color: #32382c;
-  border-radius: 20px;
-  border: 2px solid #78866b;
-  font-size: 30px;
-}
-.AddButton:hover {
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.173);
-}
-.AddButton {
-  border: 2px solid #b2beb5;
-  background: #78866b;
-  color: #32382c;
-  border-radius: 20px;
-  font-size: 30px;
-  padding: 2px 28px;
-}
-span {
-  margin-left: 20px;
-  margin-right: 20px;
-  color: #32382c;
-  border-radius: 40px;
-}
-.checkBox {
-  margin: 10px;
-  width: 26px;
-  height: 26px;
-}
-.delete {
-  font-size: 24px;
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  background: rgb(255, 255, 255);
-  border-radius: 40px;
-  color: #32382c;
-}
-.delete:hover {
-  transition: 1.5s;
-  cursor: pointer;
-  background: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-}
+  background-color: #d0d9cd; }
+  body .ToDoItem {
+    margin-bottom: 10px;
+    border: 2px solid #78866b;
+    width: 800px;
+    background: #a9ba9d;
+    border-radius: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    body .ToDoItem span {
+      margin-left: 20px;
+      margin-right: 20px;
+      color: #32382c;
+      border-radius: 40px; }
+    body .ToDoItem .checkBox {
+      margin: 10px;
+      width: 26px;
+      height: 26px; }
+  body .toDoApp {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-family: Oswald;
+    font-size: 30px; }
+  body .inlineForm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 40px; }
+  body .inlineInput {
+    margin-right: 20px;
+    background: #b2beb5;
+    color: #32382c;
+    border-radius: 20px;
+    border: 2px solid #78866b;
+    font-size: 30px; }
+    body .inlineInput .AddButton:hover {
+      cursor: pointer;
+      background: #32382c1f; }
+    body .inlineInput .AddButton {
+      border: 2px solid #b2beb5;
+      background: #78866b;
+      color: #32382c;
+      border-radius: 20px;
+      font-size: 30px;
+      padding: 2px 28px; }
+  body .delete {
+    font-size: 24px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background: #fafaf9;
+    border-radius: 40px;
+    color: #32382c; }
+  body .delete:hover {
+    -webkit-transition: 1.5s;
+    -o-transition: 1.5s;
+    transition: 1.5s;
+    cursor: pointer;
+    background: black;
+    color: #f5f6f4; }
