@@ -17,7 +17,7 @@ export const inlineForm = (onsubmit) => {
       },
     },
     [
-      $("input", { className: "inlineInput", name: "text" , maxLength:"44"}),
+      $("input", { className: "inlineInput", name: "text" , maxLength:"35"}),
       $("input", {
         type: "submit",
         value: "Add",
