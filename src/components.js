@@ -71,5 +71,3 @@ export const toDoList = (toDos) => {
     toDos.map((toDo) => toDoListItem(toDo))
   );
 };
-
-
