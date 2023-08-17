@@ -7,7 +7,7 @@
     "lint": "eslint src --fix",
     "build": "webpack --mode=production",
     "start": "webpack serve --mode=development",
-    "style": "node-sass -w ./scss -o ./css" ,
+    "style": "node-sass -w ./scss -o ./css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -18,8 +18,12 @@
   },
   "devDependencies": {
     "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
     "eslint": "^8.43.0",
     "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0"
   },

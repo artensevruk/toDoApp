@@ -1,23 +1,28 @@
-import CopyPlugin from "copy-webpack-plugin";
+import path from "path";
+import { fileURLToPath } from "url";
 
+const file = fileURLToPath(import.meta.url);
+const rootDir = path.dirname(file)
 const config = {
-  plugins: [
-    new CopyPlugin({
-      patterns: [
-        { from: "index.html", to: ".", force: true },
-        { from: "index.css", to: ".", force: true },
-      ],
-    }),
-  ],
-
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: { sourceMap: true }
+          }, {
+            loader: "sass-loader",
+            options: { sourceMap: true }
+          }
+        ]
+      }
+    ]
+  },
   devServer: {
-    static: "./dist",
-    hot: true,
-    devMiddleware: {
-      writeToDisk: (filePath) => {
-        return !/hot-update/i.test(filePath);
-      },
-    },
+    static: `${rootDir}/static`,
   },
 };
 
