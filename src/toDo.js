@@ -13,3 +13,4 @@ export const toDoApp = () => {
   const list = toDoList(array);
   return $("div", { className: "toDoApp" }, [form, list]);
 };
+debugger
