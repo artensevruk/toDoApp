@@ -8,6 +8,7 @@
     "no-trailing-spaces": 2,
     "eqeqeq": 2,
     "semi": [2, "always"],
-    "quotes": [2, "double"]
+    "quotes": [2, "double"],
+    "prefer-const": 2
   }
 }

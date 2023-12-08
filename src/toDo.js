@@ -4,7 +4,7 @@ import { readToDos, writeToDo, initStorage } from "./storage.js";
 
 export const toDoApp = () => {
   initStorage();
-  let array = readToDos();
+  const array = readToDos();
   const form = inlineForm((text) => {
     const toDo = { text, done: false };
     const storedToDo = writeToDo(toDo);
