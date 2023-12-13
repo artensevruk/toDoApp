@@ -8,12 +8,13 @@ export const inlineForm = (onsubmit) => {
       className: "inlineForm",
       onsubmit: (event) => {
         event.preventDefault();
-
         const input = event.target.text;
+        const space = input.value.trim();
         if (input.value.trim() !== "") {
-          onsubmit(input.value);
+          onsubmit(space);
           input.value = "";
         }
+
       },
     },
     [
