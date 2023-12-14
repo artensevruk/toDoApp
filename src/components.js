@@ -9,9 +9,9 @@ export const inlineForm = (onsubmit) => {
       onsubmit: (event) => {
         event.preventDefault();
         const input = event.target.text;
-        const space = input.value.trim();
-        if (input.value.trim() !== "") {
-          onsubmit(space);
+        const trimmed = input.value.trim();
+        if (trimmed !== "") {
+          onsubmit(trimmed);
           input.value = "";
         }
 
