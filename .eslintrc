@@ -10,7 +10,8 @@
     "semi": [2, "always"],
     "quotes": [2, "double"],
     "prefer-const": 2,
-    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
+    "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+    "no-return-assign": ["error", "always"]
   }
   
 }
