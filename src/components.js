@@ -34,7 +34,7 @@ export const deleteButton = (onDeleted) => {
   return $("button", {
     innerText: "x",
     className: "delete",
-    onclick: (event) => {
+    onclick:() => {
       onDeleted();
     },
   });
