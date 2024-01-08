@@ -1,7 +1,6 @@
 {
   "name": "to-do-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -16,10 +15,15 @@
     "create-element": "git+https://github.com/artensevruk/createElement.git"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
     "eslint": "^8.43.0",
     "html-webpack-plugin": "^5.5.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
     "webpack-cli": "^5.1.1",
     "webpack-dev-server": "^4.15.0"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }

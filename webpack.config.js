@@ -1,32 +1,43 @@
-import CopyPlugin from "copy-webpack-plugin";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const config = {
-  plugins: [
-    new CopyPlugin({
-      patterns: [
-        { from: "index.html", to: ".", force: true },
-        { from: "index.css", to: ".", force: true },
-      ],
-    }),
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+const file = fileURLToPath(import.meta.url);
+const rootDir = path.dirname(file);
+
+export default (env, argv) => ({
+  mode: argv.mode,
+  devtool: argv.mode === 'development'
+    ? 'source-map'
+    : false,
+  plugins:  [
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({ title: 'ToDoList' })
   ],
-
-  devServer: {
-    static: "./dist",
-    hot: true,
-    devMiddleware: {
-      writeToDisk: (filePath) => {
-        return !/hot-update/i.test(filePath);
-      },
-    },
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(`${rootDir}/dist`),
+    filename: 'bundle.js'
   },
-};
-
-export default (env, argv) => {
-  config.mode = argv.mode;
-
-  if (argv.mode === 'development') {
-    config.devtool = 'source-map';
+  module: {
+    rules: [
+      {
+        test: /\.scss$/i,
+        use: [
+          argv.mode !== "production"
+            ? "style-loader"
+            : MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: { sourceMap: true }
+          }, {
+            loader: "sass-loader",
+            options: { sourceMap: true }
+          }
+        ]
+      }
+    ]
   }
-
-  return config;
-};
+});

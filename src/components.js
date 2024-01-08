@@ -9,16 +9,17 @@ export const inlineForm = (onsubmit) => {
       className: "inlineForm",
       onsubmit: (event) => {
         event.preventDefault();
-
         const input = event.target.text;
-        if (input.value.trim() !== "") {
-          onsubmit(input.value);
+        const trimmed = input.value.trim();
+        if (trimmed !== "") {
+          onsubmit(trimmed);
           input.value = "";
         }
+
       },
     },
     [
-      $("input", { className: "inlineInput", name: "text" }),
+      $("input", { className: "inlineInput", name: "text" , maxLength:"35"}),
       $("input", {
         type: "submit",
         value: "Add",
@@ -28,11 +29,13 @@ export const inlineForm = (onsubmit) => {
   );
 };
 
+
+
 export const deleteButton = (onDeleted) => {
   return $("button", {
     innerText: "x",
     className: "delete",
-    onclick: (event) => {
+    onclick:() => {
       onDeleted();
     },
   });
